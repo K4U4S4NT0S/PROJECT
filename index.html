@@ -1,37 +1,99 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>SUCO DEV</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FOODSMART • Hamburgueria Prime</title>
+  <meta name="description" content="FOODSMART: hamburgueria com experiência premium, animações imersivas e cardápio interativo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body data-barba="wrapper">
+  <canvas id="fx-bg" aria-hidden="true"></canvas>
+  <div class="cursor-dot" aria-hidden="true"></div>
+  <div class="cursor-ring" aria-hidden="true"></div>
+
+  <div data-barba="container" data-barba-namespace="home">
+    <header class="topbar">
+      <a href="#" class="brand">FOODSMART</a>
+      <nav>
+        <a href="#menu">Cardápio</a>
+        <a href="#destaques">Destaques</a>
+        <a href="#contato">Contato</a>
+      </nav>
+      <button class="btn btn-ghost" id="cart-btn">Carrinho <span id="cart-count">0</span></button>
+    </header>
+
     <main>
-        <div class="item" style="--background: #ea3d41;">
-            <div class="title">Morango</div>
-            <img src="./img/Morango-refrigerante-foregroundBlur.png" class="fruit" alt="Morango Blur">
-            <img src="./img/Morango-refrigerante.png" class="refri" alt="Morango">
+      <section class="hero" id="inicio">
+        <div class="hero-copy" data-animate>
+          <p class="tag">Hamburgueria Premium</p>
+          <h1>O <span>prime</span> do sabor chegou na FOODSMART.</h1>
+          <p>
+            Pães artesanais, carne suculenta e combinações autorais em uma experiência visual inovadora.
+          </p>
+          <div class="cta-group">
+            <a href="#menu" class="btn">Ver cardápio</a>
+            <button class="btn btn-ghost" id="surprise-btn">Me surpreenda</button>
+          </div>
         </div>
 
-        <div class="item active" style="--background: #2d5642;">
-            <div class="title">Abacate</div>
-            <img src="./img/Abacate-refrigerante-foregroundBlur.png" class="fruit" alt="Abacate Blur">
-            <img src="./img/Abacate-refrigerante.png" class="refri" alt="Abacate">
+        <div class="hero-visual" data-animate>
+          <div class="orb orb-1"></div>
+          <div class="orb orb-2"></div>
+          <img src="./img/Morango-refrigerante.png" alt="Burger destaque" class="hero-image" id="hero-image" />
+          <div class="price-card">
+            <small>Combo Prime</small>
+            <strong>R$ 39,90</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu" id="menu">
+        <div class="section-title" data-animate>
+          <p class="tag">Nosso cardápio</p>
+          <h2>Escolha seu estilo de burger</h2>
         </div>
 
-        <div class="item hidden" style="--background: #e7a043;">
-            <div class="title">Laranja</div>
-            <img src="./img/Laranja-refrigerante-foregroundBlur.png" class="fruit" alt="Laranja Blur">
-            <img src="./img/Laranja-refrigerante.png" class="refri" alt="Laranja">
+        <div class="filters" data-animate>
+          <button class="chip active" data-filter="all">Todos</button>
+          <button class="chip" data-filter="smash">Smash</button>
+          <button class="chip" data-filter="premium">Premium</button>
+          <button class="chip" data-filter="veg">Veggie</button>
         </div>
 
-        <div class="arrow">
-            <button id="prev" aria-label="Anterior">&#60;</button>
-            <button id="next" aria-label="Próximo">&#62;</button>
+        <div class="cards" id="destaques">
+          <article class="card" data-type="smash" data-animate>
+            <h3>Smart Smash</h3>
+            <p>Duplo smash, cheddar cremoso e cebola crispy.</p>
+            <div><strong>R$ 27,90</strong><button class="btn add">Adicionar</button></div>
+          </article>
+          <article class="card" data-type="premium" data-animate>
+            <h3>Prime Bacon</h3>
+            <p>Blend 180g, bacon caramelizado e maionese da casa.</p>
+            <div><strong>R$ 34,90</strong><button class="btn add">Adicionar</button></div>
+          </article>
+          <article class="card" data-type="veg" data-animate>
+            <h3>Green Future</h3>
+            <p>Hambúrguer vegetal, rúcula e molho cítrico.</p>
+            <div><strong>R$ 29,90</strong><button class="btn add">Adicionar</button></div>
+          </article>
         </div>
+      </section>
+
+      <section class="contact" id="contato" data-animate>
+        <h2>Pronto para seu próximo burger?</h2>
+        <p>Peça agora e receba com entrega rápida.</p>
+        <a href="#" class="btn">Fazer pedido</a>
+      </section>
     </main>
+  </div>
 
-    <script src="scripts.js"></script>
+  <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.min.js"></script>
+  <script src="https://unpkg.com/@barba/core"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
